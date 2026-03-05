@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsRoutingModule } from './posts-routing-module';
 import { Posts } from './posts';
+import { Post } from './post/post';
 
 @NgModule({
   declarations: [
-    Posts
+    Posts,
+    Post
   ],
   imports: [
     CommonModule,

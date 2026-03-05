@@ -8,13 +8,11 @@ import { Data } from '../../service/data';
   styleUrl: './posts.css',
 })
 export class Posts implements OnInit{
+  mensajes: any;
+
+
   constructor(private dataService: Data ){}
     ngOnInit(){
-      this.dataService.getPosts().subscribe( posts => 
-        {
-          console.log(posts);
-        }
-      );
-
+      this.mensajes = this.dataService.getPosts();
     }
 }
