@@ -15,4 +15,9 @@ export class Posts implements OnInit{
     ngOnInit(){
       this.mensajes = this.dataService.getPosts();
     }
+  escuchaClick(id: number): void {
+    console.log('Click en el post', id);
+  }
+
 }
+

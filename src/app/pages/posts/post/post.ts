@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
+export interface PostMensaje {
+  id: number;
+  title: string;
+  body: string;
+}
 
 @Component({
   selector: 'app-post',
@@ -6,13 +12,16 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './post.html',
   styleUrl: './post.css',
 })
-export class Post implements OnInit{
-  
-  @Input() mensaje: any;
-  
-  constructor(){ }
+export class Post implements OnInit {
 
-  ngOnInit(){
-    
+  @Input() mensaje!: PostMensaje;
+  @Output() clickPost = new EventEmitter<number>();
+
+  constructor() { }
+
+  ngOnInit() {}
+
+  darClick(): void {
+    this.clickPost.emit(this.mensaje.id);
   }
 }
